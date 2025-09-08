@@ -13,6 +13,17 @@ export function formatPrice(amount: string | number, currencyCode: string) {
   }).format(Number(amount));
 }
 
+// Format Indian Rupees with INR code and narrow symbol where supported
+export function formatINR(amount: string | number) {
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    currencyDisplay: 'symbol',
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 0,
+  }).format(Number(amount));
+}
+
 export function createUrl(pathname: string, params: URLSearchParams | string) {
   const paramsString = params?.toString();
   const queryString = `${paramsString.length ? '?' : ''}${paramsString}`;

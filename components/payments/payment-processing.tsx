@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { formatINR } from "@/lib/utils"
 import { CreditCard, Lock, CheckCircle, AlertCircle } from "lucide-react"
 
 interface PaymentProcessingProps {
@@ -179,16 +180,16 @@ export function PaymentProcessing({ bookingDetails, onPaymentComplete }: Payment
           <div className="space-y-2">
             <div className="flex justify-between">
               <span>Room rate</span>
-              <span>${(bookingDetails.totalAmount / 1.12).toFixed(2)}</span>
+              <span>{formatINR(bookingDetails.totalAmount / 1.12)}</span>
             </div>
             <div className="flex justify-between">
               <span>Taxes & fees</span>
-              <span>${(bookingDetails.totalAmount * 0.12).toFixed(2)}</span>
+              <span>{formatINR(bookingDetails.totalAmount * 0.12)}</span>
             </div>
             <Separator />
             <div className="flex justify-between font-semibold text-lg">
               <span>Total</span>
-              <span>${bookingDetails.totalAmount.toFixed(2)}</span>
+              <span>{formatINR(bookingDetails.totalAmount)}</span>
             </div>
           </div>
         </CardContent>
@@ -219,7 +220,7 @@ export function PaymentProcessing({ bookingDetails, onPaymentComplete }: Payment
             Processing Payment...
           </>
         ) : (
-          `Pay $${bookingDetails.totalAmount.toFixed(2)}`
+          `Pay ${formatINR(bookingDetails.totalAmount)}`
         )}
       </Button>
 

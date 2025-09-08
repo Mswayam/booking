@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Calendar, Users, MapPin, Star } from "lucide-react"
 import { useBooking } from "@/components/booking/booking-context"
+import { formatINR } from "@/lib/utils"
 
 export function BookingSummary() {
   const { state } = useBooking()
@@ -86,18 +87,18 @@ export function BookingSummary() {
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span>
-              ${state.selectedRoom.price} × {nights} nights
+              {formatINR(state.selectedRoom.price)} × {nights} nights
             </span>
-            <span>${subtotal.toFixed(2)}</span>
+            <span>{formatINR(subtotal)}</span>
           </div>
           <div className="flex justify-between text-sm">
             <span>Taxes & fees</span>
-            <span>${taxes.toFixed(2)}</span>
+            <span>{formatINR(taxes)}</span>
           </div>
           <Separator />
           <div className="flex justify-between font-semibold text-lg">
             <span>Total</span>
-            <span>${total.toFixed(2)}</span>
+            <span>{formatINR(total)}</span>
           </div>
         </div>
 

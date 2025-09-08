@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Star, MapPin, Users, Bed } from "lucide-react"
 import Link from "next/link"
+import { formatINR } from "@/lib/utils"
 
 const rooms = [
   {
@@ -191,7 +192,7 @@ export function RoomGrid() {
 
               <div className="flex justify-between items-center">
                 <div>
-                  <span className="text-2xl font-bold text-primary">${room.price}</span>
+                  <span className="text-2xl font-bold text-primary">{formatINR(room.price)}</span>
                   <span className="text-muted-foreground">/night</span>
                 </div>
                 <div className="text-sm text-muted-foreground">({room.reviews} reviews)</div>

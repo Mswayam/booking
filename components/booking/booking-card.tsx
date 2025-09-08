@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Calendar, Users, Star } from "lucide-react"
 import { useBooking } from "@/components/booking/booking-context"
 import { useRouter } from "next/navigation"
+import { formatINR } from "@/lib/utils"
 
 interface BookingCardProps {
   room: {
@@ -62,7 +63,7 @@ export function BookingCard({ room }: BookingCardProps) {
         <div className="flex justify-between items-start">
           <div>
             <CardTitle className="text-2xl">
-              ${room.price}
+              {formatINR(room.price)}
               <span className="text-base font-normal text-muted-foreground">/night</span>
             </CardTitle>
             <div className="flex items-center gap-1 mt-1">
@@ -128,18 +129,18 @@ export function BookingCard({ room }: BookingCardProps) {
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span>
-                  ${room.price} × {nights} nights
+                  {formatINR(room.price)} × {nights} nights
                 </span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>{formatINR(subtotal)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Taxes & fees</span>
-                <span>${taxes.toFixed(2)}</span>
+                <span>{formatINR(taxes)}</span>
               </div>
               <Separator />
               <div className="flex justify-between font-semibold text-lg">
                 <span>Total</span>
-                <span>${total.toFixed(2)}</span>
+                <span>{formatINR(total)}</span>
               </div>
             </div>
           </>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star } from "lucide-react"
 import Link from "next/link"
+import { formatINR } from "@/lib/utils"
 
 const similarRooms = [
   {
@@ -61,7 +62,7 @@ export function SimilarRooms({ currentRoomId }: SimilarRoomsProps) {
               <p className="text-muted-foreground mb-4 text-pretty">{room.description}</p>
               <div className="flex justify-between items-center">
                 <div>
-                  <span className="text-xl font-bold text-primary">${room.price}</span>
+                  <span className="text-xl font-bold text-primary">{formatINR(room.price)}</span>
                   <span className="text-muted-foreground">/night</span>
                 </div>
               </div>

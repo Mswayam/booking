@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar, Users, Download, MessageCircle } from "lucide-react"
+import { formatINR } from "@/lib/utils"
 
 const bookings = [
   {
@@ -123,7 +124,7 @@ export function BookingsList() {
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-sm text-muted-foreground">Total Amount</p>
-                          <p className="text-2xl font-bold text-primary">${booking.totalAmount.toFixed(2)}</p>
+                          <p className="text-2xl font-bold text-primary">{formatINR(booking.totalAmount)}</p>
                           <p className="text-xs text-muted-foreground">Booking ID: {booking.id}</p>
                         </div>
                         <div className="flex gap-2">

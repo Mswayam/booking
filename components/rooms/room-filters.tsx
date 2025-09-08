@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Slider } from "@/components/ui/slider"
 import { Badge } from "@/components/ui/badge"
 import { X } from "lucide-react"
+import { formatINR } from "@/lib/utils"
 
 const roomTypes = ["Standard Room", "Deluxe Room", "Suite", "Villa", "Penthouse"]
 
@@ -77,8 +78,8 @@ export function RoomFilters() {
           <Label className="text-sm font-medium">Price Range (per night)</Label>
           <Slider value={priceRange} onValueChange={setPriceRange} max={1000} min={50} step={25} className="w-full" />
           <div className="flex justify-between text-sm text-muted-foreground">
-            <span>${priceRange[0]}</span>
-            <span>${priceRange[1]}</span>
+            <span>{formatINR(priceRange[0])}</span>
+            <span>{formatINR(priceRange[1])}</span>
           </div>
         </div>
 
