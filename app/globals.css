@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .base-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--sides);
+  }
+
+  .base-gap {
+    gap: var(--sides);
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+  }
+}
+
+:root {
+  --radius: 0.5rem;
+  /* Updated color palette for booking system design */
+  --background: 0 0% 100%;
+  --foreground: 215 25% 27%;
+  --card: 210 40% 96%;
+  --card-foreground: 215 25% 27%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 25% 27%;
+  --primary: 160 84% 39%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 166 76% 37%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 25% 27%;
+  --accent: 166 76% 37%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 13% 91%;
+  --input: 0 0% 100%;
+  --ring: 160 84% 39%;
+  --chart-1: 263 70% 50%;
+  --chart-2: 166 76% 37%;
+  --chart-3: 45 93% 47%;
+  --chart-4: 43 96% 56%;
+  --chart-5: 0 72% 51%;
+
+  --sides: 1rem;
+  --modal-sides: 0.75rem;
+  --top-spacing: 5rem;
+  --height-fold: 100vh;
+  --height-fold: 100svh;
+
+  @screen md {
+    --sides: 1.5rem;
+    --modal-sides: 1rem;
+    --top-spacing: 9rem;
+  }
+
+  @screen lg {
+    --modal-sides: 1.5rem;
+  }
+}
+
+/* Added dark mode support for booking system */
+.dark {
+  --background: 215 28% 17%;
+  --foreground: 210 40% 98%;
+  --card: 215 28% 17%;
+  --card-foreground: 210 40% 98%;
+  --popover: 215 28% 17%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 160 84% 39%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 166 76% 37%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 215 32% 27%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 166 76% 37%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 215 32% 27%;
+  --input: 215 32% 27%;
+  --ring: 160 84% 39%;
+}
+
+html,
+body,
+* {
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
+}
